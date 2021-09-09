@@ -1,0 +1,11 @@
+.container {
+  background-color: aliceblue;
+}
+
+.canvas {
+  border: 1pt solid red;
+}
+
+.input_video {
+  border: 1pt solid blue;
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  position: relative;
+}
+
+.canvas {
+  box-sizing: border-box;
+  border: 2pt solid green;
+}
+
+.bioLogo {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+}
