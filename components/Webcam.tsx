@@ -1,10 +1,16 @@
 import styles from '../styles/Webcam.module.scss';
 
-const Webcam: React.FC = () => {
+type WebcamProps = {
+  ref: any;
+  className: any;
+  style: any;
+};
+
+const Webcam: React.FC<WebcamProps> = () => {
   // TODO: Replace react-webcam with custom made webcam.
 
   if (typeof document !== 'undefined') {
-    const video: HTMLVideoElement = document.querySelector('#myVidPlayer')!;
+    const video: HTMLVideoElement = document.querySelector('#mediaplayer')!;
 
     //Core
     window.navigator.mediaDevices
@@ -16,12 +22,12 @@ const Webcam: React.FC = () => {
         };
       })
       .catch(() => {
-        alert('You have give browser the permission to run Webcam and mic ;( ');
+        alert('You have to give the browser permissions.');
       });
   }
   return (
     <div className={styles.container}>
-      <video id="myVidPlayer" autoPlay></video>
+      <video id="mediaplayer" autoPlay></video>
     </div>
   );
 };

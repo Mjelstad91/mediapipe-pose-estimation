@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import React from 'react';
+import Webcam from '../components/Webcam';
 import WebcamCanvas from '../components/WebcamCanvas';
 import styles from '../styles/Home.module.scss';
 
@@ -13,11 +15,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className="text-green-700 text-2xl font-bold">
-          Pose detection demo
-        </h1>
-
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
           <WebcamCanvas />
         </div>
       </main>
