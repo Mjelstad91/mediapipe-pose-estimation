@@ -1,11 +1,17 @@
-import { Pose, POSE_CONNECTIONS, Results } from '@mediapipe/pose';
+import {
+  NormalizedLandmarkList,
+  Pose,
+  POSE_CONNECTIONS,
+  Results,
+} from '@mediapipe/pose';
 import * as cam from '@mediapipe/camera_utils';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import Webcam from 'react-webcam';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../styles/WebcamCanvas.module.scss';
 import point2Joint from '../utils/point2Joint';
-import { NormalizedLandmarkList } from '../assets/pose';
+import Test from './Test';
+// import { NormalizedLandmarkList } from '../assets/pose';
 
 function WebcamCanvas() {
   const webcamRef = useRef<Webcam>(null);
@@ -20,7 +26,7 @@ function WebcamCanvas() {
   const [minTrackingConf, setMinTrackingConf] = useState<number>(0.5);
   let camera = null;
 
-  let kneeDistance: number = 0;
+  let kneeDistance: number = 0.2;
 
   const VIDEO_HEIGHT = 800;
   const VIDEO_WIDTH = 800;
@@ -190,8 +196,6 @@ function WebcamCanvas() {
         <p>Knee distance </p>
         <p id="distance"></p>
       </div>
-
-      <h1 className="">Pose detection demo</h1>
       <div
         style={{
           borderColor: kneeDistance > 0.15 ? '#bb2124' : '#22bb33',
@@ -213,6 +217,7 @@ function WebcamCanvas() {
             height: 'auto',
           }}
         ></canvas>
+        <Test kneeDistance={kneeDistance} />
       </div>
     </div>
   );
